@@ -1,0 +1,11 @@
+{
+  "@context": "https://www.w3.org/ns/solid/oidc-context.jsonld",
+
+  "client_id": "https://id.example.com/app.jsonld",
+  "redirect_uris": ["https://id.example.com/signin-callback.html"],
+  "client_name": "React OIDC Client",
+  "logo_uri": "https://id.example.com/favicon.ico",
+  "client_uri": "https://id.example.com/",
+  "grant_types": ["authorization_code"],
+  "response_types": ["code"]
+}
