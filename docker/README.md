@@ -18,3 +18,7 @@ podman build -t node-env ./node-env
 ```script
 podman build -t ioc-env ./ioc-env
 ```
+
+```script
+podman build -t ioc-env ./python-env
+```
