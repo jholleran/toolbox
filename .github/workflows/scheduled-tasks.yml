@@ -1,0 +1,23 @@
+name: Scheduled Task
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+
+jobs:
+  publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: test1
+
+      - name: Test checked out branch
+        shell: bash
+        run: |
+          echo "Test to see if we are on the correct branch"
+          git version
+          git status
+          git branch
