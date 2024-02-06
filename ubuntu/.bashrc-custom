@@ -1,0 +1,105 @@
+# ~/.bashrc-custom for bash session startup
+# This contains useful dev environment setup
+
+export LESSCHARSET="utf-8"
+export EDITOR=vim
+
+##############
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Command prompt (green)
+export PS1='\[\033[1;32m\][\h: \W]$ \[\033[0m\]'
+export LSCOLORS='GxgxadcdbxegedbebeDeDa'
+export CLICOLOR=1
+
+###################################
+# 	Some shell settings
+###################################
+umask 0002	# Make files 664 by default
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s nocaseglob
+shopt -s cdspell
+set -o noclobber
+# bind 'set editing-mode vi'
+# bind 'set keymap vi'
+#bind 'set match-hidden-files off'
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+bind 'set visible-stats on'
+#bind 'set convert-meta off'
+#bind 'set input-meta on'
+#bind 'set output-meta on'
+
+
+
+##############################
+# 	My Aliases
+##############################
+alias reprofile='vi ~/.bash_profile; . ~/.bash_profile '
+alias realias='vi ~/.bashrc; . ~/.bashrc '
+alias rebash='. ~/.bashrc'
+alias revi='vi ~/.vimrc '
+alias vi='vim '
+alias pub='chmod -R a+rx'
+
+alias ls='ls -FhB'
+alias ll='ls -l '
+alias l='ls -lA '
+alias ..='cd ..'
+alias ...='cd ../..'
+alias recent='l -t '
+
+alias kga='kubectl get all'
+alias kge='kubectl get events --sort-by=.metadata.creationTimestamp'
+
+alias docker-prune-all='docker system prune -a'
+alias docker-remove-dangling='docker rmi $(docker images --filter "dangling=true" -q)'
+
+alias intellij='~/tools/idea-IU-221.5080.210/bin/idea.sh &'
+
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+#	MISSPELLINGS
+#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+alias mow='more'
+alias mroe='more'
+alias mna=man
+alias exti='exit'
+
+
+################################
+#	COMPLETIONS
+################################
+shopt -s extglob
+set +o nounset
+complete -A export 	printenv
+complete -A variable 	local readonly unset
+complete -A enabled	builtin
+complete -A function	function
+complete -A helptopic 	help
+complete -A user 	finger su
+complete -A alias 	alias unalias
+complete -A shopt 	shopt
+complete -A stopped -P '%' bg
+complete -A job -P '%'	fg jobs disown
+complete -A directory	mkdir cd rmdir pushd
+complete -A command	man which info whereis
+
+
+
+########################
+# 	FUNCTIONS
+########################
+function cd()
+{
+	# cd to a new directory and then list the contents
+	builtin cd "$@";
+	ls;
+}
+
+
+################################
+#       MY EXPORTS
+################################
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
