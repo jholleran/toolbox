@@ -1,0 +1,9 @@
+0 15 * * * find /home/jholleran/.m2/repository/ -mtime +20 -exec rm {} \;
+15 * * * * rm -rf /home/jholleran/.m2/repository/log4j/
+45 * * * * rm -rf /home/jholleran/.m2/repository/org/apache/logging/log4j/
+
+0 15 * * * find /home/jholleran/.gradle/caches/ -mtime +10 -exec rm {} \;
+20 * * * * find /home/jholleran/.gradle/caches/ -name '*log4j*' -exec rm -R {} \;
+
+45 */2 * * * docker rmi $(docker images --filter "dangling=true" -q)
+0 */2 * * * docker exec -it kustomize-test-control-plane crictl rmi --prune
