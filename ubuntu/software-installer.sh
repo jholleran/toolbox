@@ -53,4 +53,4 @@ sudo snap install postman
 ## GIT config
 git config --global user.email "jarlath.holleran@gmail.com"
 git config --global user.name "Jarlath Holleran"
-core.excludesfile=~/.gitignore_global
+git config --global core.excludesfile "~/.gitignore_global"
