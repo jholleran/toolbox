@@ -12,6 +12,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 sudo apt -y install \
+  htop \
   curl \
   git \
   openjdk-17-jdk
@@ -32,11 +33,11 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 sudo docker run hello-world
 
-sudo groupadd docker
+sudo groupadd -f
 sudo usermod -aG docker $USER
 newgrp docker
 
