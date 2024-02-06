@@ -9,9 +9,9 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Command prompt (green)
-export PS1='\[\033[1;32m\][\h: \W]$ \[\033[0m\]'
-export LSCOLORS='GxgxadcdbxegedbebeDeDa'
-export CLICOLOR=1
+# export PS1='\[\033[1;32m\][\h: \W]$ \[\033[0m\]'
+# export LSCOLORS='GxgxadcdbxegedbebeDeDa'
+# export CLICOLOR=1
 
 ###################################
 # 	Some shell settings
