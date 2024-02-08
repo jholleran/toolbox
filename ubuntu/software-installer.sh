@@ -54,3 +54,16 @@ sudo snap install postman
 git config --global user.email "jarlath.holleran@gmail.com"
 git config --global user.name "Jarlath Holleran"
 git config --global core.excludesfile "~/.gitignore_global"
+
+
+# ------------------------------------------------------------------- #
+echo "Installing kubectl..."
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+kubectl version --client
+whereis kubectl
+rm kubectl kubectl.sha256
+echo "kubectl installed"
+# ------------------------------------------------------------------- #
