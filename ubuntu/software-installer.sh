@@ -65,5 +65,8 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client
 whereis kubectl
 rm kubectl kubectl.sha256
+
+echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
+
 echo "kubectl installed"
 # ------------------------------------------------------------------- #
